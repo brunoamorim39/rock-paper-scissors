@@ -1,0 +1,1 @@
+This project is a simple implementation of the "rock paper scissors" game. The game is played entirely through the browser console at the moment, with a front-end planned for addition in the near future.
