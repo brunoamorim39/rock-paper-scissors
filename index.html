@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header>
+            <h1>Big Leagues Rock Paper Scissors</h1>
+        </header>
+        <script>
+            // Function for computer taking it's turn. Uses a random number on [0,1) to determine choice
+            let computerPlay = function() {
+                let computerChoice = Math.random();
+
+                if (computerChoice < (1 / 3)) {
+                    return 'rock';
+                } else if (computerChoice < (2 / 3)) {
+                    return 'paper';
+                } else {
+                    return 'scissors';
+                }
+            };
+
+            // Determines winner of given round for each players' selection. Hidden easter egg is present too
+            let playRound = function(playerSelection, computerSelection) {
+                if (
+                  (playerSelection === 'rock' && computerSelection === 'scissors') 
+                  || (playerSelection === 'paper' && computerSelection === 'rock')
+                  || (playerSelection === 'scissors' && computerSelection === 'paper')
+                ) {
+                    playerScore++;
+                    return `You Win! ${playerSelection} beats ${computerSelection}!`
+                } else if (
+                  (playerSelection === 'rock' && computerSelection === 'paper')
+                  || (playerSelection === 'paper' && computerSelection === 'scissors')
+                  || (playerSelection === 'scissors' && computerSelection === 'rock')
+                ) {
+                    computerScore++;
+                    return `You Lose! ${computerSelection} beats ${playerSelection}.`;
+                } else if (playerSelection === 'gun') {
+                    playerScore++;
+                    return `Jesus, you fucking killed him! Here's a point though, I guess.`;
+                } else return `The game is tied. You both selected ${playerSelection}.`;
+            };
+
+            // Sets the game up by deciding round count and iterating through each of them. Checks for bad input, too
+            let game = function() {
+                let rounds = prompt('How many rounds?')
+
+                currentRound = 1;
+
+                    for (let i = 0; i <= rounds - 1; i++) {
+                        let computerSelection = computerPlay();
+                        let playerSelection = prompt('Rock, Paper, or Scissors?');
+                        playerSelection = playerSelection.toLowerCase();
+
+                        if (
+                          (playerSelection === 'rock')
+                          || (playerSelection === 'paper')
+                          || (playerSelection === 'scissors')
+                          || (playerSelection === 'gun')
+                        ) {
+                            alert('Round ' + currentRound + ': ' + playRound(playerSelection, computerSelection));
+                            currentRound++;
+                        } else {
+                            alert(`Your answer did not make sense. You automatically lose. Fuck you.`)
+                            computerScore++;
+                        }
+                    }
+                    console.log(`The final score is:\nYou: ${playerScore}\nComputer: ${computerScore}`); //Displays final scores
+
+                    // Little victory messages
+                    if (playerScore < computerScore) return 'Lmao you fucking loser';
+                    else if (playerScore > computerScore) return 'I am the weiner!';
+                    else return 'Okay now fight to the death';
+            }
+            // Initialize player scores
+            let playerScore = 0;
+            let computerScore = 0;
+
+            // Run game function for Rock Paper Scissors
+            console.log(game());
+        </script>
+    </body>
+</html>
