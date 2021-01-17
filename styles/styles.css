@@ -1,0 +1,60 @@
+html {
+    text-align: center;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
+.buttons {
+    margin-bottom: 15px;
+    padding: 20px;
+    font-size: 24px;
+    display: grid;
+    grid-template-columns: 20% auto auto auto 20%;
+    column-gap: 15px;
+    justify-items: auto;
+}
+
+.buttonRock {
+    grid-column-start: 2;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    background: slategrey;
+    color: wheat;
+}
+
+.buttonPaper {
+    grid-column-start: 3;
+    align-self: center;
+    justify-self: center;
+    background: whitesmoke;
+    color: dimgray;
+}
+
+.buttonScissors {
+    grid-column-start: 4;
+    align-self: center;
+    justify-self: center;
+    background: lightcyan;
+    color: steelblue;
+}
+
+.scoreContainer {
+    display: grid;
+    grid-template-columns: 40% auto auto auto 40%;
+    justify-items: center;
+}
+
+.score1 {
+    grid-column-start: 2;
+}
+
+.score2 {
+    grid-column-start: 3;
+}
+
+.score3 {
+    grid-column-start: 4;
+}
