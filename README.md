@@ -1,1 +1,1 @@
-This project is a simple implementation of the "rock paper scissors" game. The game is played entirely through the browser console at the moment, with a front-end planned for addition in the near future.
+This project is a simple implementation of the "rock paper scissors" game. The game features a skeleton UI for playing the game, with an easter egg that will require some digging to discover.
